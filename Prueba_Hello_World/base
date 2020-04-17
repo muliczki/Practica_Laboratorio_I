@@ -1,0 +1,151 @@
+#include <stdio.h>
+
+void InicializarArray(int ArrayParametro[], int cantidad)
+{
+    int i;
+    for(i=0; i<cantidad; i++)
+    {
+        ArrayParametro[i]=-1;
+    }
+}
+
+void MostrarArray(int ArrayParametro[], int cantidad)
+{
+    int i;
+    for(i=0; i<cantidad; i++)
+    {
+        printf("El valor es: %d\n",ArrayParametro[i]);
+    }
+}
+
+int SumarArray(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int sumaArray=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]>-1)
+        {
+        sumaArray+=ArrayParametro[i];
+        }
+    }
+    return sumaArray;
+}
+
+
+int CantidadArrayUsados(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int cantidadArrayenuso=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]!=-1)
+        {
+        cantidadArrayenuso++;
+        }
+    }
+    return cantidadArrayenuso;
+}
+
+int CantidadAprobados(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int cantidadAprobados=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]>4)
+        {
+        cantidadAprobados++;
+        }
+    }
+    return cantidadAprobados;
+}
+
+int CantidadDesaprobados(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int cantidadDesaprobados=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]>-1 && ArrayParametro[i]<5)
+        {
+        cantidadDesaprobados++;
+        }
+    }
+    return cantidadDesaprobados;
+}
+
+int Notamax(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int max;
+    int flag=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]>-1)
+        {
+            if(flag==0)
+            {
+            max=ArrayParametro[i];
+            flag=1;
+            }
+        if(ArrayParametro[i]>max)
+        {
+            max=ArrayParametro[i];
+        }
+        }
+    }
+    return max;
+}
+
+int Notamin(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int min;
+    int flag=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]>-1)
+        {
+            if(flag==0)
+            {
+            min=ArrayParametro[i];
+            flag=1;
+            }
+        if(ArrayParametro[i]<min)
+        {
+            min=ArrayParametro[i];
+        }
+        }
+    }
+    return min;
+}
+
+int NotasPares(int ArrayParametro[], int cantidad)
+{
+    int i;
+    int notasPares=0;
+    for(i=0; i<cantidad; i++)
+    {
+        if(ArrayParametro[i]>-1)
+        {
+         if(ArrayParametro[i]%2==0)
+         {
+             notasPares++;
+         }
+        }
+    }
+    return notasPares;
+}
+
+
+int NotasPromedio(int ArrayParametro[], int cantidad)
+{
+    int promedio;
+    int suma;
+    
+    suma= SumarArray(ArrayParametro[], cantidad);
+    cantidad = CantidadArrayUsados(ArrayParametro[], cantidad);
+    promedio= suma/cantidad;
+    return promedio;
+}
