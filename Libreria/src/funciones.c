@@ -108,12 +108,207 @@ char[] getString (char mensaje[], char arrayParametro[], int cantidad)
 		char cadena[cantidad];
 
 		printf("%s",mensaje);
-		cadena = fgets(arrayParametro, cantidad, stdin);
+		//cadena = fgets(arrayParametro, cantidad, stdin);
 
-		return cadena[];
+		//return cadena[];
 		}
 
 */
 
+void InicializarArray (int arrayParametro[], int cantidad, int numeroIndice)
+{
+	int i;
+	for (i=0; i<cantidad;i++)
+	{
+		arrayParametro[i] = numeroIndice;
+	}
+}
 
+int SumarArray (int arrayParametro[], int cantidad, int numeroIndice)
+
+{
+	int i;
+	int suma =0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+			suma+=arrayParametro[i];
+
+			}
+		}
+	return suma;
+}
+
+int ContarCargados (int arrayParametro[], int cantidad, int numeroIndice)
+
+{
+	int i;
+	int contarCargados =0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+				contarCargados++;
+			}
+		}
+	return contarCargados;
+}
+
+int ContarNoCargados  (int arrayParametro[], int cantidad, int numeroIndice)
+
+{
+	int i;
+	int contarNoCargados =0;
+		for (i=0; i<cantidad;i++)
+		{
+
+			if(arrayParametro[i]==numeroIndice)
+			{
+				contarNoCargados++;
+			}
+		}
+	return contarNoCargados;
+}
+
+int ContarSuperioresParametro  (int arrayParametro[], int cantidad, int numeroIndice, int numeroDeCorte)
+
+{
+	int i;
+	int contarSuperiores =0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+				if(arrayParametro[i]>=numeroDeCorte)
+				{
+				contarSuperiores++;
+				}
+			}
+		}
+	return contarSuperiores;
+}
+
+int ContarInferioresParametro  (int arrayParametro[], int cantidad,int numeroIndice, int numeroDeCorte)
+
+{
+	int i;
+	int contarInferiores =0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+				if(arrayParametro[i]<numeroDeCorte)
+				{
+					contarInferiores++;
+				}
+			}
+		}
+	return contarInferiores;
+}
+
+
+int MostrarMaximo  (int arrayParametro[], int cantidad,int numeroIndice)
+
+{
+	int i;
+	int maximo =0;
+	int flag=0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+				if(flag==0 || arrayParametro[i]>maximo)
+				{
+					maximo = arrayParametro[i];
+					flag=1;
+				}
+			}
+		}
+	return maximo;
+}
+
+
+int MostrarMinimo  (int arrayParametro[], int cantidad,int numeroIndice)
+
+{
+	int i;
+	int minimo =0;
+	int flag=0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+				if(flag==0 || arrayParametro[i]<minimo)
+				{
+					minimo = arrayParametro[i];
+					flag=1;
+				}
+			}
+		}
+	return minimo;
+}
+
+float PromedioArray (int arrayParametro[], int cantidad, int numeroIndice)
+{
+
+ return (float)SumarArray(arrayParametro, cantidad, numeroIndice)/ ContarCargados(arrayParametro, cantidad, numeroIndice) ;
+
+
+}
+
+
+int MostrarPares  (int arrayParametro[], int cantidad,int numeroIndice)
+
+{
+	int i;
+	int contarPares =0;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+			{
+				if(arrayParametro[i]%2==0)
+				{
+					contarPares++;
+				}
+			}
+		}
+	return contarPares;
+}
+
+void MostrarArrayTodos  (int arrayParametro[], int cantidad)
+
+{
+	int i;
+		for (i=0; i<cantidad;i++)
+		{
+			printf("\nLa posicion %d vale: %d", i+1, arrayParametro[i]);
+		}
+}
+
+void MostrarVaciosParaUsuario  (int arrayParametro[], int cantidad, int numeroIndice)
+
+{
+	int i;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]==numeroIndice)
+				{
+					printf("\nLa posicion %d esta vacia", i+1);
+				}
+		}
+}
+
+void MostrarCargadosParaUsuario  (int arrayParametro[], int cantidad, int numeroIndice)
+
+{
+	int i;
+		for (i=0; i<cantidad;i++)
+		{
+			if(arrayParametro[i]!=numeroIndice)
+				{
+					printf("\nLa posicion %d esta ocupada. Vale: %d", i+1, arrayParametro[i]);
+				}
+		}
+}
 
